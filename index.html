@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>14 Junxion Mahikeng - Connect With Us</title>
+    
+    <!-- LOAD FONTAWESOME FOR ICONS (Includes the checkmark) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        * { box-sizing: border-box; }
+
+        body {
+            background-color: #121212; 
+            color: #ffffff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+            min-height: 100dvh; 
+            display: flex;
+            flex-direction: column;
+            justify-content: center; 
+            align-items: center;     
+        }
+
+        .profile-container {
+            text-align: center;
+            margin-bottom: 35px;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .profile-pic {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #333;
+            margin-bottom: 15px;
+        }
+
+        h1 { margin: 0 0 5px 0; font-size: 1.8rem; letter-spacing: 1px; }
+        p.bio { margin: 0; color: #aaaaaa; font-size: 1rem; }
+
+        .links-container {
+            width: 100%;
+            max-width: 400px; 
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        /* --- UPDATED BUTTON LAYOUT --- */
+        .social-btn {
+            position: relative; /* Allows us to pin icons to the edges */
+            display: flex;
+            align-items: center;
+            justify-content: center; /* Centers the text perfectly */
+            width: 100%;
+            padding: 18px 20px;
+            background-color: #1e1e1e;
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            border-radius: 12px;
+            border: 1px solid #333;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        /* Pins the social brand icon to the far left */
+        .social-btn .brand-icon {
+            position: absolute;
+            left: 20px;
+            font-size: 1.5rem; 
+        }
+
+        /* Pins the green check icon to the far right, hidden by default */
+        .social-btn .check-icon {
+            position: absolute;
+            right: 20px;
+            font-size: 1.5rem;
+            color: #00ff00; /* Vibrant green */
+            opacity: 0;
+            transform: scale(0.5);
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Pop animation */
+        }
+
+        /* Class added by JavaScript to trigger the green check animation */
+        .social-btn.clicked .check-icon {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .social-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+        }
+
+        .btn-instagram:hover { border-color: #E1306C; background-color: rgba(225, 48, 108, 0.1); }
+        .btn-instagram .brand-icon { color: #E1306C; }
+
+        .btn-tiktok:hover { border-color: #00f2fe; background-color: rgba(0, 242, 254, 0.1); }
+        .btn-tiktok .brand-icon { color: #ffffff; }
+
+        .btn-facebook:hover { border-color: #1877F2; background-color: rgba(24, 119, 242, 0.1); }
+        .btn-facebook .brand-icon { color: #1877F2; }
+
+    </style>
+</head>
+<body>
+
+    <div class="profile-container">
+        <img src="logo.png" alt="14 Junxion Logo" class="profile-pic">
+        <h1>14 Junxion Mahikeng</h1>
+        <p class="bio">Join the community & stay updated.</p>
+    </div>
+
+    <div class="links-container">
+        
+        <!-- Instagram Link -->
+        <a href="https://www.instagram.com/14junxionmafikeng_/" class="social-btn btn-instagram" onclick="handleFollowClick(event, this)">
+            <i class="fa-brands fa-instagram brand-icon"></i>
+            <span>Follow on Instagram</span>
+            <i class="fa-solid fa-circle-check check-icon"></i>
+        </a>
+
+        <!-- TikTok Link -->
+        <a href="https://www.tiktok.com/discover/14-junxion-mafikeng" class="social-btn btn-tiktok" onclick="handleFollowClick(event, this)">
+            <i class="fa-brands fa-tiktok brand-icon"></i>
+            <span>Follow on TikTok</span>
+            <i class="fa-solid fa-circle-check check-icon"></i>
+        </a>
+
+        <!-- Facebook Link -->
+        <a href="https://www.facebook.com/p/14-Junxion-Mafikeng-61563153897404/" class="social-btn btn-facebook" onclick="handleFollowClick(event, this)">
+            <i class="fa-brands fa-facebook-f brand-icon"></i>
+            <span>Follow on Facebook</span>
+            <i class="fa-solid fa-circle-check check-icon"></i>
+        </a>
+
+    </div>
+
+    <!-- UI Validation Script -->
+    <script>
+        function handleFollowClick(event, element) {
+            // Stop the link from redirecting immediately
+            event.preventDefault();
+
+            // Add the 'clicked' class to trigger the green checkmark animation
+            element.classList.add('clicked');
+
+            // Wait 600 milliseconds for the user to see the checkmark, then redirect in the same window
+            setTimeout(() => {
+                window.location.href = element.href;
+            }, 600);
+        }
+    </script>
+</body>
+</html>
